@@ -22,8 +22,8 @@ function NeroESP.new(config)
     local viewportSize = Workspace.CurrentCamera.ViewportSize
     
     self.Title = config.Title or "Example Usage"
-    self.Subtitle = config.Subtitle or ""
-    self.Position = Vector2.new((viewportSize.X - (config.Size and config.Size.X or 300)) / 2,(viewportSize.Y - (config.Size and config.Size.Y or 200 + 20)) / 2)
+    self.Subtitle = config.Subtitle or "Made by Nero.GG"
+    self.Position = Vector2.new((viewportSize.X - self.Size.X) / 2,(viewportSize.Y - self.Size.Y) / 2)
     self.Size = config.Size or Vector2.new(500, 500)
     self.Dragging = false
     self.DragOffset = Vector2.new(0, 0)
