@@ -8,6 +8,7 @@ NeroESP.__index = NeroESP
 -- Services (compatible with exploits)
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
+local Workspace = game:GetService("Workspace")
 
 -- Helper function to create Drawing objects
 local function newDrawing(type)
@@ -18,10 +19,11 @@ end
 function NeroESP.new(config)
     config = config or {}
     local self = setmetatable({}, NeroESP)
+    local viewportSize = Workspace.CurrentCamera.ViewportSize
     
     self.Title = config.Title or "Example Usage"
     self.Subtitle = config.Subtitle or ""
-    self.Position = config.Position or Vector2.new(100, 100)
+    self.Position = Vector2.new((viewportSize.X - (config.Size and config.Size.X or 300)) / 2,(viewportSize.Y - (config.Size and config.Size.Y or 200 + 20)) / 2)
     self.Size = config.Size or Vector2.new(500, 500)
     self.Dragging = false
     self.DragOffset = Vector2.new(0, 0)
